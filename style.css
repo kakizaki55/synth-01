@@ -1,0 +1,22 @@
+#container{
+    position:absolute;
+    height: 200px;
+    border: 10px black solid;
+}
+.whitenotes{
+    height: 100%;
+    width: 50px;
+    background: white;
+    border-right:1px black solid;
+    float: left;
+    position: relative;
+}
+.blacknotes{
+    position: relative;
+    height: 65%;
+    width: 55px;
+    z-index: 1;
+    background: black;
+    float: left;
+    
+}

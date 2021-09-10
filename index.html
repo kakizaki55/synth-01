@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synth 01</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.26/Tone.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="container"></div>
+
+    <script>
+        const synth = new Tone.PolySynth().toMaster();
+         const notes = ['C','D','E','F','G','A','B'];
+
+    var html = "";
+    for (var i = 0; i < notes.length; i++){
+        let note = notes[i];
+
+         html += `<div class= 'whitenotes' onmousedown = 'noteDown(this)' data-note = '${note + '4'}'></div>`;
+
+         html += `<div class= 'blacknotes' onmousedown = 'noteDown(this)' data-note = '${note + '#4'}'></div>`;
+} 
+    document.getElementById('container').innerHTML = html; 
+
+    function noteDown(elem){
+        var note = elem.dataset.note;
+        //alert(note);
+        synth.triggerAttackRelease(note, "16n");
+
+    }        
+    </script>
+    
+</body>
+</html>
